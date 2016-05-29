@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<head>
+    <title>Dothraki Translator</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="Doth2Eng" style="background-color: #eee; color: #008fb3">Dothraki to English</a>
+                    </li>
+                    <li role="presentation"><a href="main" style="background-color: #eee; color: #008fb3">Home</a>
+                    </li>
+                    <li role="presentation"><a href="about" style="background-color: #eee; color: #008fb3">About</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted" style="color: white">Dothraki ~ English Translator</h3>
+        </div>
+
+        <div class="jumbotron">
+            <h1>English:</h1>
+            <p>{{english}}</p>
+        </div>
+
+         <div class="jumbotron">
+            <h1>Dothraki:</h1>
+            <p>{{translation}}</p>
+        </div>
+
+        <form class="form-translate" action="/Eng2Doth" method="POST">
+            <button id="btnTranslate"
+                    class="btn btn-lg btn-primary btn-block"
+                    type="submit"
+                    value="translate">
+                Translate another one!
+            </button>
+        </form>
+
+        <footer class="footer" style="color: white">
+                        <p><center>Author: Sean Simpson</center></p>
+            <p><center><a href="http://www.seanskylersimpson.com" style="color: white">www.seanskylersimpson.com</a></center></p>
+            <p><center>&copy; Sean Simpson 2016 </center></p>
+        </footer>
+
+    </div>
+</body>
+
+</html>

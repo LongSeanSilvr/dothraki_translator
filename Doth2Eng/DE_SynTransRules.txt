@@ -1,0 +1,593 @@
+;; Template for Transfer rules
+
+
+;; Langauge names are optional
+<SourceLanguageName>Dothraki</SourceLanguageName>
+<TargetLanguageName>English</TargetLanguageName>
+
+;; --------------------------
+;; Transfer Rules
+;; --------------------------
+
+;; Add copula in English
+;; ~~~~~~~~~~~~~~~~~~~~
+<TRule>
+<Source>S -> NP_1 NEGgen NP_2</Source>
+<Target>NP_1 [COP, am] NEGgen NP_2</Target>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_1 person>=1</Constraint>
+<Constraint><NP_2 case>=NOM</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NEGgen NP_2</Source>
+<Target>NP_1 [COP, is] NEGgen NP_2</Target>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_1 person>=3</Constraint>
+<Constraint><NP_2 case>=NOM</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NEGgen NP_2</Source>
+<Target>NP_1 [COP, are] NEGgen NP_2</Target>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_1 person>=2</Constraint>
+<Constraint><NP_2 case>=NOM</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NEGgen NP_2</Source>
+<Target>NP_1 [COP, are] NEGgen NP_2</Target>
+<Constraint><NP_1 number>=PL</Constraint>
+<Constraint><NP_2 case>=NOM</Constraint>
+</TRule>
+
+;;--
+
+<TRule>
+<Source>S -> NP_1 NP_2</Source>
+<Target>NP_1 [COP, am] NP_2</Target>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_1 person>=1</Constraint>
+<Constraint><NP_2 case>=NOM</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NP_2</Source>
+<Target>NP_1 [COP, is] NP_2</Target>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_1 person>=3</Constraint>
+<Constraint><NP_2 case>=NOM</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NP_2</Source>
+<Target>NP_1 [COP, are] NP_2</Target>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_1 person>=2</Constraint>
+<Constraint><NP_2 case>=NOM</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NP_2</Source>
+<Target>NP_1 [COP, are] NP_2</Target>
+<Constraint><NP_1 number>=PL</Constraint>
+<Constraint><NP_2 case>=NOM</Constraint>
+</TRule>
+
+;; Past copulas
+
+<TRule>
+<Source>S -> NP_1 NEGgen NP_2</Source>
+<Target>NP_1 [COP, was] NEGgen NP_2</Target>
+<Constraint><NP_1 person>=1</Constraint>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_2 case>=ABL</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NEGgen NP_2</Source>
+<Target>NP_1 [COP, was] NEGgen NP_2</Target>
+<Constraint><NP_1 person>=3</Constraint>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_2 case>=ABL</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NEGgen NP_2</Source>
+<Target>NP_1 [COP, were] NEGgen NP_2</Target>
+<Constraint><NP_1 number>=PL</Constraint>
+<Constraint><NP_2 case>=ABL</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NEGgen NP_2</Source>
+<Target>NP_1 [COP, were] NEGgen NP_2</Target>
+<Constraint><NP_1 person>=2</Constraint>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_2 case>=ABL</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NEGgen NP_2</Source>
+<Target>NP_1 [COP, will be] NEGgen NP_2</Target>
+<Constraint><NP_2 case>=ALL</Constraint>
+</TRule>
+
+;;---
+
+<TRule>
+<Source>S -> NP_1 NP_2</Source>
+<Target>NP_1 [COP, was] NP_2</Target>
+<Constraint><NP_1 person>=1</Constraint>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_2 case>=ABL</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NP_2</Source>
+<Target>NP_1 [COP, was] NP_2</Target>
+<Constraint><NP_1 person>=3</Constraint>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_2 case>=ABL</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NP_2</Source>
+<Target>NP_1 [COP, were] NP_2</Target>
+<Constraint><NP_1 number>=PL</Constraint>
+<Constraint><NP_2 case>=ABL</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NP_2</Source>
+<Target>NP_1 [COP, were] NP_2</Target>
+<Constraint><NP_1 person>=2</Constraint>
+<Constraint><NP_1 number>=SG</Constraint>
+<Constraint><NP_2 case>=ABL</Constraint>
+</TRule>
+
+<TRule>
+<Source>S -> NP_1 NP_2</Source>
+<Target>NP_1 [COP, will be] NP_2</Target>
+<Constraint><NP_2 case>=ALL</Constraint>
+</TRule>
+
+;; Swap Adjective order
+;; ~~~~~~~~~~~~~~~~~~~~
+<TRule>
+<Source>NP  -> dmPRO ADJP</Source>
+<Target>ADJP dmPRO</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> dmMOD N ADJP</Source>
+<Target>dmMOD ADJP N</Target>
+</TRule>
+
+
+;; Swap NEG order
+;; ~~~~~~~~~~~~~~~~~~~~
+<TRule>
+<Source>VP -> NEGgen AUX VINF NP</Source>
+<Target>AUX NEGgen VINF NP</Target>
+</TRule>
+
+<TRule>
+<Source>VP -> NEGgen AUX VINF</Source>
+<Target>AUX NEGgen VINF</Target>
+</TRule>
+
+<TRule>
+<Source>VP -> NEGgen PERF VPERF NP</Source>
+<Target>PERF NEGgen VPERF NP</Target>
+</TRule>
+
+<TRule>
+<Source>VP -> NEGgen PERF VPERF</Source>
+<Target>PERF NEGgen VPERF</Target>
+</TRule>
+
+;--
+
+<TRule>
+<Source>VP -> NEGgen AUX VINF NP PP</Source>
+<Target>AUX NEGgen VINF NP PP</Target>
+</TRule>
+
+<TRule>
+<Source>VP -> NEGgen AUX VINF PP</Source>
+<Target>AUX NEGgen VINF PP</Target>
+</TRule>
+
+<TRule>
+<Source>VP -> NEGgen PERF VPERF NP PP</Source>
+<Target>PERF NEGgen VPERF NP PP</Target>
+</TRule>
+
+<TRule>
+<Source>VP -> NEGgen PERF VPERF PP</Source>
+<Target>PERF NEGgen VPERF PP</Target>
+</TRule>
+
+;; Add determiner to nouns
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<TRule>
+<Source>NP -> NUMP N ORDNUM ADJP PP</Source>
+<Target>[DET,a/the] NUMP ADJP ORDNUM N PP</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N ORDNUM ADJP</Source>
+<Target>[DET,a/the] NUMP ADJP ORDNUM N</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N ORDNUM</Source>
+<Target>[DET,a/the] NUMP ORDNUM N</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> N ORDNUM</Source>
+<Target>[DET,a/the] ORDNUM N</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N</Source>
+<Target>[DET,a/the] NUMP N</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> N</Source>
+<Target>[DET,a/the] N</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N ADJP</Source>
+<Target>[DET,a/the] NUMP ADJP N</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> N ADJP</Source>
+<Target>[DET,a/the] ADJP N</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N</Source>
+<Target>[DET,a/the] NUMP N</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> N ORDNUM ADJP</Source>
+<Target>[DET,a/the] ADJP ORDNUM N</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+;;--
+<TRule>
+<Source>NP -> NUMP N ORDNUM PP</Source>
+<Target>[DET,a/the] NUMP ORDNUM N PP</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N ADJP PP</Source>
+<Target>[DET,a/the] NUMP ADJP N PP</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> N ORDNUM ADJP PP</Source>
+<Target>[DET,a/the] ADJP ORDNUM N PP</Target>
+<Constraint><N number>=SG</constraint>
+</TRule>
+
+;;----
+
+<TRule>
+<Source>NP -> NUMP N ORDNUM ADJP PP</Source>
+<Target>[DET,(the)] NUMP ADJP ORDNUM N PP</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N ORDNUM ADJP</Source>
+<Target>[DET,(the)] NUMP ADJP ORDNUM N</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N ORDNUM</Source>
+<Target>[DET,(the)] NUMP ORDNUM N</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> N ORDNUM</Source>
+<Target>[DET,(the)] ORDNUM N</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N</Source>
+<Target>[DET,(the)] NUMP N</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> N</Source>
+<Target>[DET,(the)] N</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N ADJP</Source>
+<Target>[DET,(the)] NUMP ADJP N</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> N ADJP</Source>
+<Target>[DET,(the)] ADJP N</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N</Source>
+<Target>[DET,(the)] NUMP N</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> N ORDNUM ADJP</Source>
+<Target>[DET,(the)] ADJP ORDNUM N</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+;;--
+<TRule>
+<Source>NP -> NUMP N ORDNUM PP</Source>
+<Target>[DET,(the)] NUMP ORDNUM N PP</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NUMP N ADJP PP</Source>
+<Target>[DET,(the)] NUMP ADJP N PP</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> N ORDNUM ADJP PP</Source>
+<Target>[DET,(the)] ADJP ORDNUM N PP</Target>
+<Constraint><N number>=PL</constraint>
+</TRule>
+
+;;----
+
+<TRule>
+<Source>NP -> ORDNUM PP</Source>
+<Target>[DET,a/the] ORDNUM PP</Target>
+<Constraint><ORDNUM number>=SG</constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> ORDNUM PP</Source>
+<Target>[DET,(the)] ORDNUM PP</Target>
+<Constraint><ORDNUM number>=PL</constraint>
+</TRule>
+
+ ;; Swap possessor order
+ ;; ~~~~~~~~~~~~~~~~~~~~
+
+<TRule>
+<Source>NP -> NP_1 NP_2</Source>
+<Target>NP_2 NP_1</Target>
+<Constraint><NP_2 case>=GEN</Constraint>
+<Constraint><NP_2 pronoun>=yes</Constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NP_1 NP_2</Source>
+<Target>NP_2 NP_1</Target>
+<Constraint><NP_2 case>=ABS</Constraint>
+<Constraint><NP_2 pronoun>=yes</Constraint>
+</TRule>
+
+ ;; add "of" for non-pronoun NP possessors
+ ;; ~~~~~~~~~~~~~~~~~~~~
+
+<TRule>
+<Source>NP -> NP_1 NP_2</Source>
+<Target>NP_1 [PREP,of] NP_2</Target>
+<Constraint><NP_2 case>=GEN</Constraint>
+<Constraint><NP_2 pronoun>=no</Constraint>
+</TRule>
+
+
+<TRule>
+<Source>NP -> NP_1 NP_2</Source>
+<Target>NP_1 [PREP,of] NP_2</Target>
+<Constraint><NP_2 case>=ABS</Constraint>
+<Constraint><NP_2 pronoun>=no</Constraint>
+</TRule>
+
+
+;; ---------------------
+;; Pre-processing rules
+;; ---------------------
+
+;;<PreProc>
+;;  <Find>RegEx</Find>  
+;;  <Replace>RegEx</Replace>
+;;  <Context>Specify where this applies</Context>
+;;</PreProc>
+
+
+<PreProc>
+  <Find>\bm'([aeiou]\w*)\b</Find>
+  <Replace>ma $1</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bm'([aeiou]\w*)\b</Find>
+  <Replace>me $1</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bhajinaan m(e|')(\w+)\b</Find>
+  <Replace>hajinaan me $2</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bvo(\s[bcdfghjklmnpqrstvwxz]\w+)\b</Find>
+  <Replace>vos $1</Replace>
+</PreProc>
+
+;; ---------------------
+;; Post-processing rules
+;; 
+;; ---------------------
+
+
+;;<PostProc>
+;;  <Find>Regular Expression</Find>
+;;  <Replace>Regular Expression</Replace>
+;;  <Context>Specify where this applies</Context>
+;;</PostProc>
+
+<PostProc>
+  <Find>_</Find>
+  <Replace> </Replace>
+</PostProc>
+
+<PostProc>
+  <Find>\bcan not\b</Find>
+  <Replace>cannot</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>\bmans\b</Find>
+  <Replace>men</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>(will\s+(\w+\s+){2})will</Find>
+  <Replace>$1</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>(my|your|his|her|their|our) a\/the</Find>
+  <Replace>$1</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>(my|your|his|her|their|our) \(the\)</Find>
+  <Replace>$1</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>is a\/the</Find>
+  <Replace>is a</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>I am a\/the</Find>
+  <Replace>I am a</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>are a\/the</Find>
+  <Replace>are a</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>are \(the\)</Find>
+  <Replace>are</Replace>
+</PostProc>
+
+;; copula mistakes
+<PostProc>
+  <Find>does not be</Find>
+  <Replace>is not</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>did not be</Find>
+  <Replace>was not</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>do not be</Find>
+  <Replace>are not</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>I are not</Find>
+  <Replace>I am not</Replace>
+</PostProc>
+
+;; ORDNUM REPLACEMENTS
+;;-----------------------------------------
+
+<PostProc>
+  <Find>\boneth\b</Find>
+  <Replace>first</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>\btwoth\b</Find>
+  <Replace>second</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>\bthreeth\b</Find>
+  <Replace>third</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>\bfiveth\b</Find>
+  <Replace>fifth</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>\beightth\b</Find>
+  <Replace>eighth</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>\bnineth\b</Find>
+  <Replace>ninth</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>\btwelveth\b</Find>
+  <Replace>twelfth</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>tyth\b</Find>
+  <Replace>tieth</Replace>
+</PostProc>
+
+;; ----------------------------------------
+;; Default POS rules for OOV
+;; Template 
+;; <OOV> Suffix, POS, Features </OOV>
+;; All rules that apply will be used
+;; Special rule with "suffix" DEFAULT will be
+;; used only if no others are used
+
+<OOV> DEFAULT, N, <number> = SING</OOV>
+<OOV> s, N, <number> = PLUR </OOV>
+

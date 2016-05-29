@@ -1,0 +1,4 @@
+Rule  S  -> W / {W S_1}
+
+Rule  W -> NEGATIVE / ADJECT / GENNEG / DEMMOD / INNOUN / COORD / DEMPRO / dmPRO / PREP / ADJ / \g / PERF / VINF / VERB / NEGgen / PR / NUM / dmMOD / NEGIMP / AUX / V / ADV / VPERF / ANNOUN / INAN / NEG / INTERJECT / N / ORDNUM 
+

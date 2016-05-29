@@ -1,0 +1,13 @@
+## Configuration file for SyntacticTransfer.pl
+## Should specify files for grammar, lexicon and transfer rules
+## These files are for Source to Target
+
+$GrammarFile  = "DE_grammar.txt";
+$LexiconFile  = "DE_lexicon.txt";
+$TransferFile = "DE_SynTransRules.txt";
+
+
+
+# $ST_ExternalPreprocessor = "PreProcessor.pl"; (happens before PCPATR)
+$PCPATR_EXE  = "pcpatr32.exe";
+# $ST_CodePage = 1252;

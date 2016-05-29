@@ -1,0 +1,335 @@
+;; ==========================================================================
+;; Author: Sean Simpson
+;; Dothraki - English Grammar
+;; Use with Simpson_DE_Lex9.txt
+;; ==========================================================================
+
+;; ==========================================================================
+;; non-terminals:	S, NP, VP, ADJP, PP
+;; terminals: N, V, ADJ, PR, AUX, dmPRO, dmMOD, NEG, NEGgen, COORD, ADVP, PREP
+;; ==========================================================================
+
+;; TOP LEVEL
+;;--------------------------------------------------------------------------
+Rule S       -> NP VP
+    <VP number> = <NP number>
+    <VP person> = <NP person>
+    <NP case> = NOM
+    <VP imperative> = NO
+
+Rule S      -> S COORD S
+
+Rule S      -> S COMP S
+
+Rule S      -> NP VP_1 COORD VP_2
+    <VP_1 number> = <NP number>
+    <VP_1 person> = <NP person>
+    <VP_2 number> = <VP_1 number>
+    <VP_2 person> = <VP_1 person>
+    <NP case> = NOM
+
+Rule S      -> NP_1 (NEGgen) NP_2
+    <NP_1 case> = NOM
+    <NP_2 case> = NOM
+    <NP_2 number> = <NP_1 number>
+    <NP_2 pronoun> = no
+
+Rule S      -> NP_1 (NEGgen) NP_2
+    <NP_1 case> = NOM
+    <NP_2 case> = ABL
+    <NP_2 number> = <NP_1 number>
+    <NP_2 pronoun> = no
+
+Rule S      -> NP_1 (NEGgen) NP_2
+    <NP_1 case> = NOM
+    <NP_2 case> = ALL
+    <NP_2 number> = <NP_1 number>
+    <NP_2 pronoun> = no
+
+;; RULES TO ALLOW FRAG TRANSLATION
+Rule S      -> NP
+
+Rule S      -> VP
+    <VP tense> = IMP
+
+Rule S      -> ADJP
+
+Rule S      -> ADVP
+
+Rule S      -> NUMP
+
+;; NP RULES
+;;--------------------------------------------------------------------------
+Rule NP      -> (NUMP) N (ORDNUM) (ADJP) (PP)
+	  <NP number> = <N number>
+    <NP person> = <N person>
+	  <NP case> = <N case>
+    <NP poss> = <N poss>
+    <ADJP number> = <N number>
+    <ADJP case> = <N case>
+    <NP pronoun> = no
+    <N number> = <NUMP number>
+    <ORDNUM case> = GEN
+    <ORDNUM number> = <N number>
+
+
+
+Rule NP      -> dmMOD (NUMP) N (ORDNUM) (ADJP) (PP)
+      <NP number> = <N number>
+    <NP person> = <N person>
+      <NP case> = <N case>
+    <NP poss> = <N poss>
+    <ADJP number> = <N number>
+    <ADJP case> = <N case>
+    <dmMOD number> = <N number>
+    <NP pronoun> = no
+    <N number> = <NUMP number>
+    <ORDNUM case> = GEN
+    <ORDNUM number> = <N number>
+
+
+Rule NP      -> PR (PP)
+    <NP number> = <PR number>
+    <NP person> = <PR person>
+    <NP case> = <PR case>
+    <NP poss> = <PR poss>
+    <NP pronoun> = yes
+
+Rule NP      -> ORDNUM (PP)
+    <NP number> = <ORDNUM number>
+    <NP person> = <ORDNUM person>
+    <NP case> = <ORDNUM case>
+    <NP ordinal> = yes
+
+Rule NP      -> dmPRO (ADJP) (PP)
+    <NP number> = <dmPRO number>
+    <NP person> = <dmPRO person>
+    <NP case> = <dmPRO case>
+    <NP poss> = <dmPRO poss>
+    <ADJP number> = <dmPRO number>
+    <ADJP case> = <dmPRO case>
+    <NP pronoun> = yes
+
+Rule NP      -> NP_1 NP_2 (PP)
+    <NP_1 poss> = <NP_2 poss>
+    <NP case> = <NP_1 case>
+    {<NP_2 case> = GEN / <NP_2 case> = ABL}
+    <NP number> = <NP_1 number>
+    <NP_2 ordinal> = no
+    <NP person> = <NP_1 person>
+
+
+Rule NP      -> NP_1 COORD NP_2
+    <NP case> = <NP_1 case>
+    <NP person> = <NP_1 person>
+    <NP_1 case> = <NP_2 case>
+    <NP number> = PL
+
+
+
+;; VP RULES
+;;--------------------------------------------------------------------------
+
+;; Base rules ~~~~~~~~~~~~~~~~~~~~~
+Rule VP      -> V NP (PP) (ADVP) 
+    <VP number> = <V number>
+    <VP person> = <V person>
+    <NP case> = ACC
+    {<V valency> = TR / <V valency> = BI}
+    <V polarity> = POS
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+    
+Rule VP      -> V (PP) (ADVP)
+    <VP number> = <V number>
+    <VP person> = <V person>
+    {<V valency> = IN / <V valency> = BI}
+    <V polarity> = POS
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+
+;; Negative Imperative rules ~~~~~~~~~~~~~~~~~~~~~
+Rule VP      -> NEGIMP V NP (PP) (ADVP) 
+    <VP number> = <V number>
+    <VP person> = <V person>
+    <NP case> = ACC
+    {<V valency> = TR / <V valency> = BI}
+    <V polarity> = NEG
+    <ADVP intensifier> = no
+    <V tense> = IMP
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+    
+Rule VP      -> NEGIMP V (PP) (ADVP)
+    <VP number> = <V number>
+    <VP person> = <V person>
+    {<V valency> = IN / <V valency> = BI}
+    <V polarity> = NEG
+    <ADVP intensifier> = no
+    <V tense> = IMP
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+    
+;; Negation~~~~~~~~~~~~~~~~~~~~~~~~
+
+Rule VP      -> NEG VINF NP (PP) (ADVP)
+    <VP number> = <VINF number>
+    <VP person> = <VINF person>
+    <NP case> = ACC
+    {<VINF valency> = TR / <VINF valency> = BI}
+    <VINF polarity> = <NEG polarity>
+    <NEG tense> = <VINF tense>
+    <NEG person> = <VINF person>
+    <NEG number> = <VINF number>
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+    
+Rule VP      -> NEG VINF (PP) (ADVP)
+    <VP number> = <VINF number>
+    <VP person> = <VINF person>
+    {<VINF valency> = IN / <VINF valency> = BI}
+    <VINF polarity> = <NEG polarity>
+    <NEG tense> = <VINF tense>
+    <NEG person> = <VINF person>
+    <NEG number> = <VINF number>
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+    
+;; Aux verbs~~~~~~~~~~~~~~~~~~~~~~~
+
+Rule VP      -> AUX VINF NP (PP) (ADVP)
+    <VP number> = <VINF number>
+    <VP person> = <VINF person>
+    <NP case> = ACC
+    {<VINF valency> = TR / <VINF valency> = BI}
+    <VINF polarity> = POS
+    <AUX tense> = <VINF tense>
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+
+Rule VP      -> AUX VINF (PP) (ADVP)
+    <VP number> = <VINF number>
+    <VP person> = <VINF person>
+    {<VINF valency> = IN / <VINF valency> = BI}
+    <VINF polarity> = POS
+    <AUX tense> = <VINF tense>
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+
+Rule VP      -> NEGgen AUX VINF NP (PP) (ADVP)
+    <VP number> = <VINF number>
+    <VP person> = <VINF person>
+    <NP case> = ACC
+    {<VINF valency> = TR / <VINF valency> = BI}
+    <VINF polarity> = <NEGgen polarity>
+    <AUX tense> = <VINF tense>
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+
+Rule VP      -> NEGgen AUX VINF (PP) (ADVP)
+    <VP number> = <VINF number>
+    <VP person> = <VINF person>
+    {<VINF valency> = IN / <VINF valency> = BI}
+    <VINF polarity> = <NEGgen polarity>
+    <AUX tense> = <VINF tense>
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+
+;; Past Perfect ~~~~~~~~~~~~~~~~~~~
+
+Rule VP      -> PERF VPERF NP (PP) (ADVP)
+    <VP number> = <VPERF number>
+    <VP person> = <VPERF person>
+    <NP case> = ACC
+    {<VPERF valency> = TR / <VPERF valency> = BI}
+    <VPERF polarity> = POS
+    <PERF tense> = <VPERF tense>
+    <PERF person> = <VPERF person>
+    <PERF number> = <VPERF number>
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+
+Rule VP      -> PERF VPERF (PP) (ADVP)
+    <VP number> = <VPERF number>
+    <VP person> = <VPERF person>
+    {<VPERF valency> = IN / <VPERF valency> = BI}
+    <VPERF polarity> = POS
+    <PERF tense> = <VPERF tense>
+    <PERF person> = <VPERF person>
+    <PERF number> = <VPERF number>
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+
+Rule VP      -> NEGgen PERF VPERF NP (PP) (ADVP)
+    <VP number> = <VPERF number>
+    <VP person> = <VPERF person>
+    <NP case> = ACC
+    {<VPERF valency> = TR / <VPERF valency> = BI}
+    <VPERF polarity> = <NEGgen polarity>
+    <PERF tense> = <VPERF tense>
+    <PERF person> = <VPERF person>
+    <PERF number> = <VPERF number>
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+
+Rule VP      -> NEGgen PERF VPERF (PP) (ADVP)
+    <VP number> = <VPERF number>
+    <VP person> = <VPERF person>
+    {<VPERF valency> = IN / <VPERF valency> = BI}
+    <VPERF polarity> = <NEGgen polarity>
+    <PERF tense> = <VPERF tense>
+    <PERF person> = <VPERF person>
+    <PERF number> = <VPERF number>
+    <ADVP intensifier> = no
+    <VP tense> = <V tense>
+    <VP imperative> = <V imperative>
+
+;; ADJ RULES
+;;--------------------------------------------------------------------------
+Rule ADJP    -> (ADVP) ADJ
+    <ADJP number> = <ADJ number>
+    <ADJP case> = <ADJ case>
+    <ADVP temporal> = no
+
+;; ADV RULES
+;;--------------------------------------------------------------------------
+Rule ADVP    -> (ADV_1) ADV_2
+    <ADVP temporal> = <ADV_2 temporal>
+    <ADVP intensifier> = <ADV_2 intensifier>
+    <ADV_1 intensifier> = yes
+
+
+;; PREP RULES
+;;--------------------------------------------------------------------------
+Rule PP    -> PREP NP
+    <PREP case> = <NP case>
+
+;; NUMP RULES
+;;--------------------------------------------------------------------------
+Rule NUMP    -> NUMP COORD NUMP
+    <NUMP number> = PL
+Rule NUMP    -> NUM
+    <NUMP number> = <NUM number>
+
+
+;; Defaults
+;;---------------------------------------------------------------------------
+Let dmPRO be <person> = !3
+Let N be <poss> = !ALIEN <person> = !3 <pronoun> = !no
+Let V be <valency> = !BI <imperative> = !NO
+Let VINF be <valency> = !BI
+Let PR be <pronoun> = !yes <poss> = !ALIEN
+Let ADVP be <intensifier> = !no <temporal> = !no
+Let NUM be <number> = !PL
+Let NP be <ordinal> = !no

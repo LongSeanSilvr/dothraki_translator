@@ -1,0 +1,1148 @@
+;; Template for Transfer rules
+
+
+;; Langauge names are optional
+<SourceLanguageName>English</SourceLanguageName>
+<TargetLanguageName>Dothraki</TargetLanguageName>
+
+;; --------------------------
+;; Transfer Rules
+;; --------------------------
+
+;; NP RULES
+;;--------------------------------------------------------------------------
+
+<TRule>
+<Source>NP  -> DET NUMP ORDNUM ADJP N PP</Source>
+<Target>DET NUMP N ORDNUM ADJP PP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> DET NUMP ORDNUM ADJP N</Source>
+<Target>DET NUMP N ORDNUM ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> DET NUMP ADJP N</Source>
+<Target>DET NUMP N ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> DET ORDNUM ADJP N</Source>
+<Target>DET N ORDNUM ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> DET ADJP N</Source>
+<Target>DET N ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> DET ORDNUM N</Source>
+<Target>DET N ORDNUM</Target>
+</TRule>
+
+;;---
+<TRule>
+<Source>NP  -> NUMP ORDNUM ADJP N PP</Source>
+<Target>NUMP N ORDNUM ADJP PP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> NUMP ORDNUM ADJP N</Source>
+<Target>NUMP N ORDNUM ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> NUMP ADJP N</Source>
+<Target>NUMP N ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> ORDNUM ADJP N</Source>
+<Target>N ORDNUM ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> ADJP N</Source>
+<Target>N ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> ORDNUM N</Source>
+<Target>N ORDNUM</Target>
+</TRule>
+;;---
+
+<TRule>
+<Source>NP  -> dmMOD NUMP ORDNUM ADJP N PP</Source>
+<Target>dmMOD NUMP N ORDNUM ADJP PP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> dmMOD NUMP ORDNUM ADJP N</Source>
+<Target>dmMOD NUMP N ORDNUM ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> dmMOD NUMP ADJP N</Source>
+<Target>dmMOD NUMP N ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> dmMOD NUMP ADJP N PP</Source>
+<Target>dmMOD NUMP N ADJP PP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> dmMOD NUMP ORDNUM N PP</Source>
+<Target>dmMOD NUMP N ORDNUM PP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> dmMOD ORDNUM ADJP N PP</Source>
+<Target>dmMOD N ORDNUM ADJP PP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> dmMOD ORDNUM N PP</Source>
+<Target>dmMOD N ORDNUM PP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> dmMOD ORDNUM ADJP N</Source>
+<Target>dmMOD N ORDNUM ADJP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> dmMOD ADJP N PP</Source>
+<Target>dmMOD N ADJP PP</Target>
+</TRule>
+
+<TRule>
+<Source>NP  -> dmMOD ADJP N</Source>
+<Target>dmMOD N ADJP</Target>
+</TRule>
+
+TRule>
+<Source>NP  -> dmMOD ORDNUM N</Source>
+<Target>dmMOD N ORDNUM</Target>
+</TRule>
+
+;;<TRule>
+;;<Source>NP  -> dmMOD (NUMP) (ORDNUM) (ADJP) N (PP)</Source>
+;;<Target>dmMOD (NUMP) N (ORDNUM) (ADJP) (PP)</Target>
+;;</TRule>
+
+<TRule>
+<Source>NP -> NP_1 NP_2</Source>
+<Target>NP_2 NP_1</Target>
+<Constraint><NP_1 case>=GEN</Constraint>
+<Constraint><NP_1 pronoun>=yes</Constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NP_1 NP_2</Source>
+<Target>NP_2 NP_1</Target>
+<Constraint><NP_1 case>=ABS</Constraint>
+<Constraint><NP_1 pronoun>=yes</Constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NP_1 POSS NP_2</Source>
+<Target>NP_2 NP_1</Target>
+<Constraint><NP_1 case>=GEN</Constraint>
+<Constraint><NP_1 pronoun>=no</Constraint>
+</TRule>
+
+<TRule>
+<Source>NP -> NP_1 POSS NP_2</Source>
+<Target>NP_2 NP_1</Target>
+<Constraint><NP_1 case>=ABS</Constraint>
+<Constraint><NP_1 pronoun>=no</Constraint>
+</TRule>
+
+;; VP RULES
+;;--------------------------------------------------------------------------
+
+<TRule>
+<Source>VP  -> V NP ADVP PP</Source>
+<Target>V NP PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> V ADVP PP</Source>
+<Target>V PP ADVP</Target>
+</TRule>
+
+;; Negation~~~~~~~~~~~~~~~~~~~~~~~~
+
+<TRule>
+<Source>VP  -> NEG VINF NP ADVP PP</Source>
+<Target>NEG VINF NP PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> NEG VINF ADVP PP</Source>
+<Target>NEG VINF PP ADVP</Target>
+</TRule>
+
+;; Aux verbs~~~~~~~~~~~~~~~~~~~~~~~
+
+<TRule>
+<Source>VP  -> AUX VINF NP ADVP PP</Source>
+<Target>AUX VINF NP PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX ADVP VINF NP PP</Source>
+<Target>AUX VINF NP PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX ADVP VINF NP</Source>
+<Target>AUX VINF NP ADVP</Target>
+</TRule>
+
+;;<TRule>
+;;<Source>VP  -> AUX (ADVP) VINF NP (ADVP) (PP)</Source>
+;;<Target>AUX VINF NP (PP) (ADVP)</Target>
+;;</TRule>
+
+<TRule>
+<Source>VP  -> AUX VINF ADVP PP</Source>
+<Target>AUX VINF PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX ADVP VINF PP</Source>
+<Target>AUX VINF PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX ADVP VINF</Source>
+<Target>AUX VINF ADVP</Target>
+</TRule>
+
+;;<TRule>
+;;<Source>VP  -> AUX (ADVP) VINF (ADVP) (PP)</Source>
+;;<Target>AUX VINF (PP) (ADVP)</Target>
+;;</TRule>
+
+<TRule>
+<Source>VP  -> NEGgen AUX VINF NP ADVP PP</Source>
+<Target>NEGgen AUX VINF NP PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> NEGgen AUX ADVP VINF NP PP</Source>
+<Target>NEGgen AUX VINF NP PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> NEGgen AUX ADVP VINF NP</Source>
+<Target>NEGgen AUX VINF NP ADVP</Target>
+</TRule>
+
+;;<TRule>
+;;<Source>VP  -> AUX NEGgen (ADVP) VINF NP (PP) (ADVP)</Source>
+;;<Target>NEGgen AUX VINF NP (PP) (ADVP)</Target>
+;;</TRule>
+
+<TRule>
+<Source>VP  -> AUX NEGgen VINF ADVP PP</Source>
+<Target>NEGgen AUX VINF PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX NEGgen ADVP VINF PP</Source>
+<Target>NEGgen AUX VINF PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX NEGgen ADVP VINF</Source>
+<Target>NEGgen AUX VINF ADVP</Target>
+</TRule>
+
+;;<TRule>
+;;<Source>VP  -> AUX NEGgen (ADVP) VINF (PP) (ADVP)</Source>
+;;<Target>NEGgen AUX VINF (PP) (ADVP)</Target>
+;;</TRule>
+
+;; Past Perfect ~~~~~~~~~~~~~~~~~~~
+
+<TRule>
+<Source>VP  -> AUX PERF ADVP VPERF NP PP</Source>
+<Target>AUX PERF VPERF NP PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX PERF ADVP VPERF NP</Source>
+<Target>AUX PERF VPERF NP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF ADVP VPERF NP PP</Source>
+<Target>PERF VPERF NP PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF ADVP VPERF NP</Source>
+<Target>PERF VPERF NP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX PERF ADVP VPERF PP</Source>
+<Target>AUX PERF VPERF PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX PERF ADVP VPERF</Source>
+<Target>AUX PERF VPERF ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF ADVP VPERF PP</Source>
+<Target>PERF VPERF PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF ADVP VPERF</Source>
+<Target>PERF VPERF ADVP</Target>
+</TRule>
+
+;;---
+
+<TRule>
+<Source>VP  -> PERF NEGgen VPERF NP PP ADVP</Source>
+<Target>NEGgen PERF VPERF NP PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF NEGgen VPERF NP ADVP</Source>
+<Target>NEGgen PERF VPERF NP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF NEGgen VPERF NP PP</Source>
+<Target>NEGgen PERF VPERF NP PP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF NEGgen VPERF NP</Source>
+<Target>NEGgen PERF VPERF NP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF NEGgen VPERF PP ADVP</Source>
+<Target>NEGgen PERF VPERF PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF NEGgen VPERF ADVP</Source>
+<Target>NEGgen PERF VPERF ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF NEGgen VPERF PP</Source>
+<Target>NEGgen PERF VPERF PP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> PERF NEGgen VPERF</Source>
+<Target>NEGgen PERF VPERF</Target>
+</TRule>
+
+;; --
+
+<TRule>
+<Source>VP  -> AUX NEGgen PERF VPERF NP PP ADVP</Source>
+<Target>NEGgen AUX PERF VPERF NP PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX NEGgen PERF VPERF NP ADVP</Source>
+<Target>NEGgen AUX PERF VPERF NP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX NEGgen PERF VPERF NP PP</Source>
+<Target>NEGgen AUX PERF VPERF NP PP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX NEGgen PERF VPERF NP</Source>
+<Target>NEGgen AUX PERF VPERF NP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX NEGgen PERF VPERF PP ADVP</Source>
+<Target>NEGgen AUX PERF VPERF PP ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX NEGgen PERF VPERF ADVP</Source>
+<Target>NEGgen AUX PERF VPERF ADVP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX NEGgen PERF VPERF PP</Source>
+<Target>NEGgen AUX PERF VPERF PP</Target>
+</TRule>
+
+<TRule>
+<Source>VP  -> AUX NEGgen PERF VPERF</Source>
+<Target>NEGgen AUX PERF VPERF</Target>
+</TRule>
+
+;; NUMP RULES
+;;--------------------------------------------------------------------------
+
+<TRule>
+<Source>NUMP  -> NUM_1 NUM_2</Source>
+<Target>NUM_1 [COORD, ma] NUM_2</Target>
+</TRule>
+
+
+;; ---------------------
+;; Pre-processing rules
+;; ---------------------
+
+;;~~~~~~~ Contractions
+;;<PreProc>
+;;  <Find>RegEx</Find>  
+;;  <Replace>RegEx</Replace>
+;;  <Context>Specify where this applies</Context>
+;;</PreProc>
+
+
+<PreProc>
+  <Find>don't</Find>
+  <Replace>do not</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>won't</Find>
+  <Replace>will not</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>didn't</Find>
+  <Replace>did not</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>shouldn't</Find>
+  <Replace>should not</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>wouldn't</Find>
+  <Replace>would not</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>couldn't</Find>
+  <Replace>could not</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>can't</Find>
+  <Replace>can not</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>cannnot</Find>
+  <Replace>can not</Replace>
+</PreProc>
+
+;;~~~~~~~~~~~ possession
+
+<PreProc>
+  <Find>(\w+)'s </Find>
+  <Replace>$1 's </Replace>
+</PreProc>
+
+;; ~~~~~~~~~~~~~~ separate out neg from future cop
+<PreProc>
+  <Find>will not be</Find>
+  <Replace>will be not</Replace>
+</PreProc>
+
+;;~~~~~~~~~~~ present progressive to reg
+<PreProc>
+  <Find>(am|are|is|) (\w+p)ping</Find>
+  <Replace>$2</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>(am|are|is|) (\w+g)ging</Find>
+  <Replace>$2</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>(am|are|is|) (\w+b)bing</Find>
+  <Replace>$2</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>(am|are|is|) (\w+t)ting</Find>
+  <Replace>$2</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>(am|are|is|) (\w+d)ding</Find>
+  <Replace>$2</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>(am|are|is|) (\w+)ing</Find>
+  <Replace>$2</Replace>
+</PreProc>
+
+;;~~~~~~~~~~~ past progressive to reg
+<PreProc>
+  <Find>(was|were) (\w+p)ping</Find>
+  <Replace>$2ed</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>(was|were) (\w+g)ging</Find>
+  <Replace>$2ed</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>(was|were) (\w+b)bing</Find>
+  <Replace>$2ed</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>(was|were) (\w+t)ting</Find>
+  <Replace>$2ed</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>(was|were) (\w+d)ding</Find>
+  <Replace>$2ed</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>(was|were) (\w+)ing</Find>
+  <Replace>$2ed</Replace>
+</PreProc>
+
+;;~~~~ fix irregs for past progressive
+
+<PreProc>
+  <Find>\barised\b</Find>
+  <Replace>arose</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbabysited\b</Find>
+  <Replace>babysat</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbed\b</Find>
+  <Replace>was</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbeated\b</Find>
+  <Replace>beat</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbecomed\b</Find>
+  <Replace>became</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbegined\b</Find>
+  <Replace>began</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbended\b</Find>
+  <Replace>bent</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbeted\b</Find>
+  <Replace>bet</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbinded\b</Find>
+  <Replace>bound</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbited\b</Find>
+  <Replace>bit</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbleeded\b</Find>
+  <Replace>bled</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bblowed\b</Find>
+  <Replace>blew</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbreaked\b</Find>
+  <Replace>broke</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbreeded\b</Find>
+  <Replace>bred</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbringed\b</Find>
+  <Replace>brought</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbroadcasted\b</Find>
+  <Replace>broadcast</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbuilded\b</Find>
+  <Replace>built</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bbuyed\b</Find>
+  <Replace>bought</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bcatched\b</Find>
+  <Replace>caught</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bchoosed\b</Find>
+  <Replace>chose</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bcomed\b</Find>
+  <Replace>came</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bcosted\b</Find>
+  <Replace>cost</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bcuted\b</Find>
+  <Replace>cut</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bdealed\b</Find>
+  <Replace>dealt</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bdiged\b</Find>
+  <Replace>dug</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bdoed\b</Find>
+  <Replace>did</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bdrawed\b</Find>
+  <Replace>drew</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bdrinked\b</Find>
+  <Replace>drank</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bdrived\b</Find>
+  <Replace>drove</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\beated\b</Find>
+  <Replace>ate</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bfalled\b</Find>
+  <Replace>fell</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bfeeded\b</Find>
+  <Replace>fed</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bfeeled\b</Find>
+  <Replace>felt</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bfighted\b</Find>
+  <Replace>fought</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bfinded\b</Find>
+  <Replace>found</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bflyed\b</Find>
+  <Replace>flew</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bforbided\b</Find>
+  <Replace>forbade</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bforgeted\b</Find>
+  <Replace>forgot</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bforgived\b</Find>
+  <Replace>forgave</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bfreezed\b</Find>
+  <Replace>froze</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bgeted\b</Find>
+  <Replace>got</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bgived\b</Find>
+  <Replace>gave</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bgoed\b</Find>
+  <Replace>went</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bgrowed\b</Find>
+  <Replace>grew</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bhang*ed\b</Find>
+  <Replace>hung</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bhaved\b</Find>
+  <Replace>had</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bheared\b</Find>
+  <Replace>heard</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bhided\b</Find>
+  <Replace>hid</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bhited\b</Find>
+  <Replace>hit</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bholded\b</Find>
+  <Replace>held</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bhurted\b</Find>
+  <Replace>hurt</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bkeeped\b</Find>
+  <Replace>kept</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bknowed\b</Find>
+  <Replace>knew</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\blayed\b</Find>
+  <Replace>laid</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bleaded\b</Find>
+  <Replace>led</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bleaved\b</Find>
+  <Replace>left</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\blended\b</Find>
+  <Replace>lent</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bleted\b</Find>
+  <Replace>let</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\blied\b</Find>
+  <Replace>lay</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\blighted\b</Find>
+  <Replace>lit</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\blosed\b</Find>
+  <Replace>lost</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bmaked\b</Find>
+  <Replace>made</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bmeaned\b</Find>
+  <Replace>meant</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bmeeted\b</Find>
+  <Replace>met</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bpayed\b</Find>
+  <Replace>paid</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bputed\b</Find>
+  <Replace>put</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bquited\b</Find>
+  <Replace>quit</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\breaded\b</Find>
+  <Replace>read</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\brided\b</Find>
+  <Replace>rode</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bringed\b</Find>
+  <Replace>rang</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\brised\b</Find>
+  <Replace>rose</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bruned\b</Find>
+  <Replace>ran</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bsayed\b</Find>
+  <Replace>said</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bseed\b</Find>
+  <Replace>saw</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bselled\b</Find>
+  <Replace>sold</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bsended\b</Find>
+  <Replace>sent</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bseted\b</Find>
+  <Replace>set</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bshaked\b</Find>
+  <Replace>shook</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bshined\b</Find>
+  <Replace>shone</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bshooted\b</Find>
+  <Replace>shot</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bshowed\b</Find>
+  <Replace>showed</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bshuted\b</Find>
+  <Replace>shut</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bsinged\b</Find>
+  <Replace>sang</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bsinked\b</Find>
+  <Replace>sank</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bsited\b</Find>
+  <Replace>sat</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bsleeped\b</Find>
+  <Replace>slept</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bslided\b</Find>
+  <Replace>slid</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bspeaked\b</Find>
+  <Replace>spoke</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bspended\b</Find>
+  <Replace>spent</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bspined\b</Find>
+  <Replace>spun</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bspreaded\b</Find>
+  <Replace>spread</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bstanded\b</Find>
+  <Replace>stood</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bstealed\b</Find>
+  <Replace>stole</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bsticked\b</Find>
+  <Replace>stuck</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bstinged\b</Find>
+  <Replace>stung</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bstinked\b</Find>
+  <Replace>stank</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bstriked\b</Find>
+  <Replace>struck</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bsweared\b</Find>
+  <Replace>swore</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bsweeped\b</Find>
+  <Replace>swept</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bswimed\b</Find>
+  <Replace>swam</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bswinged\b</Find>
+  <Replace>swung</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\btaked\b</Find>
+  <Replace>took</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bteached\b</Find>
+  <Replace>taught</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bteared\b</Find>
+  <Replace>tore</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\btelled\b</Find>
+  <Replace>told</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bthinked\b</Find>
+  <Replace>thought</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bthrowed\b</Find>
+  <Replace>threw</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bunderstanded\b</Find>
+  <Replace>understood</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bwaked\b</Find>
+  <Replace>woke</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bweared\b</Find>
+  <Replace>wore</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bwined\b</Find>
+  <Replace>won</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bwithdrawed\b</Find>
+  <Replace>withdrew</Replace>
+</PreProc>
+
+<PreProc>
+  <Find>\bwrited\b</Find>
+  <Replace>wrote</Replace>
+</PreProc>
+
+;;---
+<PreProc>
+  <Find>\ba\b</Find>
+  <Replace>the</Replace>
+</PreProc>
+;; ---------------------
+;; Post-processing rules
+;; 
+;; ---------------------
+
+
+;;<PostProc>
+;;  <Find>Regular Expression</Find>
+;;  <Replace>Regular Expression</Replace>
+;;  <Context>Specify where this applies</Context>
+;;</PostProc>
+
+<PostProc>
+  <Find>_</Find>
+  <Replace> </Replace>
+</PostProc>
+
+<PostProc>
+  <Find>NULL</Find>
+  <Replace></Replace>
+</PostProc>
+
+<PostProc>
+  <Find>me' ([aeiou])</Find>
+  <Replace>m'$1</Replace>
+</PostProc>
+
+<PostProc>
+  <Find>me' ([^aeiou])</Find>
+  <Replace>me$1</Replace>
+</PostProc>
+
+;; ----------------------------------------
+;; Default POS rules for OOV
+;; Template 
+;; <OOV> Suffix, POS, Features </OOV>
+;; All rules that apply will be used
+;; Special rule with "suffix" DEFAULT will be
+;; used only if no others are used
+
+<OOV> DEFAULT, N, <number> = SING</OOV>
+<OOV> s, N, <number> = PLUR </OOV>
+

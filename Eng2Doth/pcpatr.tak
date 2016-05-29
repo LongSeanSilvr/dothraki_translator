@@ -1,0 +1,19 @@
+;; ========================================================================================
+;; Author: Sean Simpson 
+;; Dothraki - English Parser
+;; ========================================================================================
+
+;; ========================================================================================
+;; NOTE: This iteration of the Dothraki Grammar and Lexicon has the following improvements:
+;;    --Added parsing support for cardinal and ordinal numerals
+;;    --Added syntactic transfer rules for correct translation of these constructions into English
+;; ========================================================================================
+
+;; ~~~~~~~~~~~~~~~~~~~~~
+set VERBOSE off
+set WARNINGS off
+load lexicon ED_lexicon.txt
+load grammar ED_grammar.txt
+;; ~~~~~~~~~~~~~~~~~~~~~
+
+

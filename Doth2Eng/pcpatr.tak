@@ -1,0 +1,221 @@
+;; ========================================================================================
+;; Author: Sean Simpson 
+;; Dothraki - English Parser
+;; ========================================================================================
+
+;; ========================================================================================
+;; NOTE: This iteration of the Dothraki Grammar and Lexicon has the following improvements:
+;;    --Added parsing support for cardinal and ordinal numerals
+;;    --Added syntactic transfer rules for correct translation of these constructions into English
+;; ========================================================================================
+
+;; ~~~~~~~~~~~~~~~~~~~~~
+set VERBOSE off
+set WARNINGS off
+load lexicon DE_lexicon.txt
+load grammar DE_grammar.txt
+;; ~~~~~~~~~~~~~~~~~~~~~
+
+
+;; CURRENT EXAMPLE SENTENCES
+
+;;; ------------------------------------------------------------------
+;;; Numerals (cardinal)
+;;; ------------------------------------------------------------------
+;
+;p anha addriv mek mahrazhis
+;;; "I killed five men"
+;;; correct
+;
+;p tor mahrazhi vos laz dothrao at hrazef
+;;; "four men cannot ride one horse"
+;;; correct
+;
+;p at jano ma senthi lajaki addrivish akat hrazef anni
+;;; "one dog and thirteen warriors killed my two horses"
+;;; correct
+;
+;;; ------------------------------------------------------------------
+;;; Numerals (ordinal)
+;;; ------------------------------------------------------------------
+;
+;p anha addriv lajakes mekthiki
+;;; "I killed the fifteenth warrior."
+;;; correct
+;
+;p anha addriv mekthikes
+;;; "I killed the fifteenth."
+;;; correct
+;
+;p anha addriv mekthiki
+;;; "I killed the fifteenth."
+;;; incorrect -- when used as stand-alone nouns, ordinal numbers must decline like animate nouns. 
+;;;	Therefore "mekthik" should be in the accusative, but here it is in the genitive
+;
+;p anha addriv lajakes mekthikes
+;;; "I killed the fifteenth warrior."
+;;; incorrect -- when used as a modifier, ordinal numbers must be in genitive case.
+
+;; =============================================================================================================================
+;; =============================================================================================================================
+;; =============================================================================================================================
+;; OLD EXAMPLE SENTENCES
+
+;;; ------------------------------------------------------------------
+;;; Prepositional Phrases
+;;; ------------------------------------------------------------------
+;
+;p anha addriv mahrazhes ma athvillaroon ivezha
+;;; "I killed the man with wild wisdom"
+;;; correct
+;;; note: two parses are possible -- same syntactic ambiguity that exists in English exists in Dothraki for this construction.
+;
+;p mahrazh ha havazhoon heska jolin she okrenegwin has
+;;; "the man from the southern sea cooked in the stone house"
+;;; correct
+;
+;P anha vos dothrok oma hrazefoon vezhvena anhoon
+;;; I do not ride without my great horse
+;;; correct
+;
+;P anha vos dothrok oma hrazef vezhvena anhoon
+;;; I do not ride without my horse.acc
+;;; incorrect: preposition "oma" assigns ablative case, but here "hrazef" is in the accusative.
+;
+;;; ------------------------------------------------------------------
+;;; Adverbs
+;;; ------------------------------------------------------------------
+;
+;p mahrazh ha havazhoon heska jolin she okrenegwin has oskikh
+;;; "the man from the southern sea cooked in the stone house yesterday"
+;;; correct
+;
+;p mahrazh ha havazhoon heska jolina chekosshi
+;;; "the man from the southern sea cooks very well"
+;;; correct
+;
+;p chiorikem anni jolina sekke aranne
+;;; "my wife cooks very carelessly"
+;;; correct
+;
+;p chiorikem anni jolina sekke
+;;; "my wife cooks very"
+;;; incorrect -- ADVP must contain one adv that is not an intensifier
+;
+;;; ------------------------------------------------------------------
+;;; NP Coordination 
+;;; ------------------------------------------------------------------
+;
+;P lajak verven addriv hrazef vezhvena ma chiorikemes anni
+;;; the violent warrior killed the great horse and my wife
+;;; correct
+;;; NOTE: There is some ambiguity in Dothraki as to whether the horse is mine-- i.e. whether the possessor takes scope over the 
+;;;	entire coordinated NP, or if it is part of the last NP in the coordinated structure. An English semi-equivalent would be 
+;;;	"he killed my wife and horses," in which the coordinated NP is either "(my wife) and (horses)"" or "my (wife and horses)"
+;
+;p lajak verven ma mahrazh yofi addrivish chiorikemes anni
+;;; the violent warrior and the crazy man killed.3pl my wife
+;;; correct
+;
+;p lajak verven ma mahrazh yofi addriv chiorikemes anni
+;;; the violent warrior and the crazy man killed.3sg my wife
+;;; incorrect -- even though both subject NPs are singular, the coordinated NP is PL and therefore the verb must be conjugated
+;;;	for a plural third person subject.
+ 
+
+;;; -----------------------------------------------------------------
+;;; improved english translation in negative and future constructions
+;;; -----------------------------------------------------------------
+;p anha adothrak
+;;; "I will ride"
+;;; correct
+;
+;p anha vos odothrok
+;;; "I will not ride"
+;;; correct
+;
+;p rek lajak vos dothro
+;;;"that warrior did not ride"
+;;; correct
+;
+;p rek lajak vos dothrao
+;;;"that warrior does not ride"
+;;; correct
+;
+;p rek lajak vos dothra
+;;; "that warrior did not ride.POS"
+;;; incorrect -- polarity matching between neg particle and verb conjugation 
+;;;    still applies ('dothra' is 3.sg.PAST.POS rather than 3.sg.PAST.NEG)
+;
+;;; -----------------------------------------------------------------
+;;; aux verb and modal constructions
+;;; -----------------------------------------------------------------
+;p anha laz addriv jin lajakes
+;;; "I could kill this warrior"
+;;; correct
+;
+;p lajaki vezhveni vos jif dothrao sajoes naqisi
+;;; "great warriors should not ride small steeds"
+;;; correct
+;
+;p lajak ray essa
+;;; "the warrior has returned"
+;;; correct
+;
+;p lajak ray essala;
+;;; "the warrior has returned.PRES";
+;;; incorrect -- verb 'essala' is conj for present rather than past tense. The ;
+;;;    construction 'ray + V' denotes the past perfect, and the verb must be conjugated in ;past tense.
+;
+;;; -----------------------------------------------------------------
+;;; compound sentences with coordinating conjunctions
+;;; -----------------------------------------------------------------
+;p anha addriv lajakes imesha hajinaan me me fati chiorikemes anni
+;;; "I killed the violent warrior because he insulted my wife"
+;;; correct
+
+;p anha addriv lajakes imesha hajinaan me me fati chiorikemes lajaki ivezha
+;;; "I killed the violent warrior because he insulted the wife of the wild warrior"
+;;; correct
+;
+;p kisha vos oessaloki hash yer vos kadi sajoes ivezha
+;;; "we will not return if you do not capture a wild steed"
+;;; correct
+;
+;p kisha vos oessaloki yer vos kadi sajoes ivezha
+;;; "we will not return you do not capture a wild steed"
+;;; incorrect -- missing coordinating conjunction between sentences
+
+;; OLDER example sentences
+
+;p anha vos addrivo jin lajakes vezhvena
+;;; "I did not kill this violent warrior"
+;;; correct
+;
+;p anha addriv hazakis
+;;; "I killed those ones.ACC"
+;;; correct
+;
+;p rekak verven addriv mae
+;;; "that violent one killed him"
+;;; correct
+;
+;p anha vos addrivo sajoes vezhveni lajaki vervena
+;;; "I didn't kill the great steed.ACC of the violent warrior.GEN"
+;;; correct
+;
+;p anha vos adakho qoraes vezhveni lajakoon vervena
+;;; "I didn't eat the great hands.ACC of the violent warrior.ABL"
+;;; correct
+;
+;p anha vos adakho sajoes vezhveni lajakoon vervena
+;;; "I didn't eat the steeds.ACC of the violent warrior.ABL"
+;;; incorrect - sajoes is alienable, therefore possessor must take GEN case, not ABL.
+;
+;p anha vos addrivo qoraes vezhveni lajaki vervena
+;;; "I didn't eat the hand/hands.ACC of the violent warrior.GEN"
+;;; incorrect - qora is an inalienable noun, therefore possessor must take ABL case, not GEN.
+;
+;p anha addriv hazaki
+;;; "I killed those ones.NOM"
+;;; incorrect - demonstrative pronoun should be in accusative case

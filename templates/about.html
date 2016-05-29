@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<head>
+    <title>Dothraki Translator</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a href="main" style="background-color: #eee; color: #008fb3">Home</a>
+                    </li>
+                    <li role="presentation"><a href="about" style="background-color: #eee; color: #008fb3">About</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted" style="color: white">Dothraki ~ English Translator</h3>
+        </div>
+       
+      <div class="blog-header">
+        <h1 class="blog-title" align="left">Things you ought to know</h1>
+        <p class="lead blog-description" align="left" style="color:white;"></p>
+      </div>
+
+    <div class="jumbotron">
+      <div class="row">
+
+        <div class="col-sm-12 blog-main">
+
+          <div class="blog-post" align="left">
+
+            <h2 align="left"><b>What is Dothraki?</b></h2>
+              <p>
+                One assumes you already know a bit about Dothraki if you're here, but if not, here's a run-down.
+              </p>
+              <p> </p>
+              <p>
+                Dothraki is what is termed a "constructed language" or "conlang" -- meaning it is a language
+                that was intentionally
+                and purposefully designed, rather than a langauge which occurred and evolved "naturally."
+              </p>
+              <p> </p>
+              <p>
+                  Dothraki was originally created by George R. R. Martin for use in his novel series <i> A Song of Ice and
+                  Fire</i>. Martin conceptualized Dothraki as the native language of the Dothraki people -- a nomadic,
+                  warlike culture indigenous to the lands around Eastern Essos in the fictional universe in which
+                  <i>A Song of Ice and Fire</i> takes place.
+              </p>
+              <p> </p>
+              <p> While first used in <i>A Song of Ice and Fire</i>, Dothraki remained
+                  no more than a collection of a few hundred words and phrases until the advent of the TV series
+                  <i>Game of Thrones</i> in 2011, based on Martin's original series. Directors of the TV series wanted the
+                  ability to shoot scenes using dialogue entirely in Dothraki, and so hired linguist
+                  David J. Peterson to further develop and flesh out the Dothraki language based on the snippets
+                  in Martin's novels and notes. Most of the information available on Dothraki today, and the
+                  vast majority of available Dothraki corpora, come from Peterson's published books, blogs, and wikis
+                  about the language.
+              </p>
+            <hr>
+            <hr>
+            <h2 align="left"><b>Why is this website a thing?</b></h2>
+
+            <p>One might wonder, given the fact that Dothraki is not a 'naturally occurring' language spoken natively
+                or fluently by anyone in the world, why someone would bother creating a machine translation system for
+                it. The short answer is: because I thought it was neat.
+            </p>
+            <p> </p>
+            <p>The long answer is: believe it or not, there exists a small but enthusiastic group
+                committed to learning, using, and expanding the Dothraki language. You can find these brave souls
+                interacting on various web forums, where you might read posts about anything and everything from the
+                minutiae of Dothraki syntax to culturally-bound language philosophy questions such as why there are no
+                words for "murder" or "thank you" in Dothraki. Despite this group of active Dothraki users,
+                I have been unable to find any online translators as of yet which go beyond the simple
+                (and almost entirely incorrect) word-for-word translations you would get by simply thumbing through
+                a dictionary.
+              </p>
+              <p> </p>
+              <p>To my knowledge, the translation module that functions as the back-end for this site
+                is the only system which attempts to take into account the
+                rich system of inflectional morphology and syntactic complexity that George R. R. Martin and
+                David Peterson have developed for Dothraki. It is thus my hope that this website may be of some
+                limited use to this online community of Dothraki users -- especially as I add in support for more types
+                of syntactic constructions.</p>
+              <p> </p>
+              <p>It is far from perfect, but it's a start.</p>
+            <hr>
+            <hr>
+            <h2 align="left"><b>Limitations of the translator</b></h2>            
+            <p>
+                Like most conlangs, Dothraki has a relatively small lexicon. While some websites claim the language
+                has up to 3,000 unique lexemes, I have not been able to verify the existence of any Dothraki
+                dictionary or lexeme collection with more than 1,300 or so unique lexical items. In addition to the
+                small size, the Dothraki lexicon is also heavily biased semantically towards warfare, horse-riding,
+                conquest, and other areas of note in Dothraki culture. As you can no doubt imagine,
+                It is thus much easier in Dothraki to talk about killing kings and riding dragons
+                than it is to, say, ask where one has left one's reading glasses.
+            </p>
+            <p> </p>
+            <p>All of this is really to say that if you're having trouble translating such anachronistic
+                sentences as "My computer crashed after the cello concerto yesterday," this is a feature. Not a bug.
+              </p>
+              <p> </p>
+              <p>Of course, there are likely more than a few bugs in the system as well, so if you find any,
+                  please don't hesitate to email me.</p>
+
+            <hr>
+            <hr>
+            <h2 align="left"><b>Source of langauge materials</b></h2>
+
+            <h3 style="color:black">Vocabulary</h3>
+            <p>
+                The lexicons used in the translation modules on this site are based on the
+                <a href="http://docs.dothraki.org/Dothraki.pdf">Dothraki Dictionary</a>
+                created by Richard Littauer. This is the most comprehensive and up-to-date repository of
+                Dothraki vocabulary I have been able to find so far, containing roughly 1,300 entries in all.
+            </p>
+            <p> </p>
+            <p>
+                Quick disclaimer: the gloss table used for the translator was automatically extracted from a PDF. While
+                I've done some basic entry validation, it's likely more extraction errors lurk in the lexicon of
+                this translator. If you find any, please let me know so that I can correct them.
+            </p>
+            <h3 style="color:black">Morphology and Syntax</h3>
+            <p>
+                The morphological and syntactic information included in the translation system on this site comes
+                from David Peterson's excellent <a href="https://wiki.dothraki.org/Learning_Dothraki">Dothraki
+                grammar wiki</a>. While I had initially planned on providing support for all syntactic phenomena outlined in
+                the Wiki before launch, I ultimately decided that throwing the basic translator up on the web
+                now and adding to it over time was preferable to waiting until I had every little detail ironed out.
+                This way at least people might get some use out of it during the development phase.
+              </p>
+                <p> </p>
+              <p>
+                As of 5/9/2016 the translator modules include support for all inflectional morphology,
+                select derivational morphological operations, and what I felt would be the most commonly used
+                syntactic constructions. At this time constructions like passives, the use of reflexives,
+                noun compounding, and certain clause subordination operations are not currently supported.
+            </p>
+            <h3 style="color:black">Langauge Translation Software</h3>
+            <p>
+                The programs which act as the main morphological parsing and syntactic transfer engines in the back-end
+                of the translation modules used on this site were developed by Dr. George V. Wilson. Many thanks
+                are due to Dr. Wilson for his guidance and patience throughout the process of creating this translator.
+              </p>
+
+             <hr>
+            <hr>
+            <h2 align="left"><b>Bugs / Suggestions / Questions</b></h2>
+            <p> If you find any bugs, have any suggestions for featurs or vocabulary to add, or just generally want to get in touch, shoot me an email at DothrakiTranslator@gmail.com.
+            </p>
+
+             <hr>
+            <hr>
+            <h2 align="left"><b>Source code for the translator</b></h2>
+            <p> If you're interested, you can find all the source code for the translation system on 
+                <a href="https://github.com/LongSeanSilvr/dothraki_translator">my github</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+      </div>
+        <footer class="footer" style="color: white">
+            <p><center>Author: Sean Simpson</center></p>
+            <p><center><a href="http://www.seanskylersimpson.com" style="color: white">www.seanskylersimpson.com</a></center></p>
+            <p><center>&copy; Sean Simpson 2016 </center></p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
